@@ -1,0 +1,12 @@
+#! /bin/bash
+# vim:ft=bash
+
+# Git
+if [ -f "${HOME}/.config/git/git-prompt.sh" ]; then
+	source "${HOME}/.config/git/git-prompt.sh"
+	PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+	#export PS1="\n\[\e[00;36m\]\u@\h:\[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;36m\] \D{%Y-%m-%d} \A\[\e[0m\]\n\$(__git_ps1 " (%s)")\[\e[1;37m\]\$\[\e[0m\] "
+else
+	export PS1="\n\[\e[00;36m\]\u@\h:\[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;36m\] \D{%Y-%m-%d} \A\[\e[0m\]\n\[\e[1;37m\]\$\[\e[0m\] "
+fi
+
