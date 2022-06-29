@@ -4,7 +4,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-if [ -n "$XDG_CONFIG_HOME" ]; then
+if [ -z "$XDG_CONFIG_HOME" ]; then
 	XDG_CONFIG_HOME="${HOME}/.config"
 fi
 
