@@ -4,11 +4,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-if [ -z "$XDG_CONFIG_HOME" ]; then
-	XDG_CONFIG_HOME="${HOME}/.config"
-fi
-
 # Set config dir
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=${HOME}/.config}"
 sh_config="${XDG_CONFIG_HOME}/sh"
 bash_config="${XDG_CONFIG_HOME}/bash"
 
