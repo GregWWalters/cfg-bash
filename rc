@@ -6,13 +6,15 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Set config dir
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=${HOME}/.config}"
+XDG_DATA_HOME="${XDG_DATA_HOME:=${HOME}/.local/share}"
 sh_config="${XDG_CONFIG_HOME}/sh"
 bash_config="${XDG_CONFIG_HOME}/bash"
+git_config="${XDG_CONFIG_HOME}/git"
 
 # load profile
 # profile loads environment variables, path, aliases, functions, and sets the
 # prompt
-[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+[ -s "${sh_config}/profile" ] && source "${sh_config}/profile"
 
 # Force bash to ignore carriage return (\r) characters
 # used in Windows line separators.
@@ -33,8 +35,8 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # Load git completion if present
 [ -f "${bash_config}/git-completion.bash" ] && source "${bash_config}/git-completion.bash"
 # Use git-prompt if found
-if [ -f "${HOME}/.config/git/git-prompt.sh" ]; then
-	source "${HOME}/.config/git/git-prompt.sh"
+if [ -f "${git_config}/git-prompt.sh" ]; then
+	source "${git_config}/git-prompt.sh"
 	PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 	#export PS1="\n\[\e[00;36m\]\u@\h:\[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;36m\] \D{%Y-%m-%d} \A\[\e[0m\]\n\$(__git_ps1 " (%s)")\[\e[1;37m\]\$\[\e[0m\] "
 else
@@ -42,7 +44,7 @@ else
 fi
 
 ## Codefresh CLI completion
-codefresh_config="${HOME}/.config/codefresh"
+codefresh_config="${XDG_CONFIG_HOME}/codefresh"
 if [ -d "$codefresh_config" -a -s "${codefresh_config}/completion.bash" ]; then
 	source "${codefresh_config}/completion.zsh"
 fi
