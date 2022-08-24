@@ -52,22 +52,17 @@ fi
 # Load nvm (Node Version Manager)
 if [ -z ${NVM_DIR+x} ]; then
 	# This loads nvm bash_completion
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-	# Only load NVM when needed so not to slow down shell startup
-	function nvm {
-		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-		nvm "$@"
-	}
+	[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 fi
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
+[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 
 # vim:ft=bash
