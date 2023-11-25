@@ -56,16 +56,16 @@ if [ -z ${NVM_DIR+x} ]; then
 fi
 
 # Fuzzy Find autocompletion and keybindings
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ]; then source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash; fi
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+[ -f $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && source $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+[ -f $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && source $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && source /Users/greg/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
+[ -f $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && source $HOME/.npm/_npx/14940/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 
 # vim:ft=bash
