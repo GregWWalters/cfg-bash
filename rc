@@ -31,9 +31,14 @@ export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
 # iTerm2 Shell Integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# Load completions
+completions_dir="${XDG_CONFIG_HOME}/bash/completion"
+if [ -d "$completions_dir" ]; then
+	# source each file
+	find "$completions_dir" -type f -name '*.bash' -exec . {} ';'
+fi
+
 # Git
-# Load git completion if present
-[ -f "${BASH_CFG_DIR}/git-completion.bash" ] && source "${BASH_CFG_DIR}/git-completion.bash"
 # Use git-prompt if found
 if [ -f "${GIT_CFG_DIR}/git-prompt.sh" ]; then
 	source "${GIT_CFG_DIR}/git-prompt.sh"
